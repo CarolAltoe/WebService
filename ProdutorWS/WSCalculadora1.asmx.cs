@@ -18,12 +18,9 @@ namespace ProdutorWS
     {
 
         [WebMethod]
-        public string Calculadora(decimal valor1, decimal valor2, char operador)
+        public string Calculadora(float v1, float v2, char op)
         {
-            decimal resultado;
-            decimal v1 = valor1;
-            decimal v2 = valor2;
-            char op = operador;
+            float resultado;
 
             if (op.Equals('+'))
             {
@@ -53,10 +50,8 @@ namespace ProdutorWS
         }
 
         [WebMethod]
-        public int Fatorial(int valor1)
+        public int Fatorial(int v1)
         {
-            int v1 = valor1;
-
             if(v1 <= 1)
             {
                 return 1;
@@ -67,11 +62,9 @@ namespace ProdutorWS
         }
 
         [WebMethod]
-        public string Imc(decimal alt, decimal pes)
+        public string Imc(float altura, float peso)
         {
-            decimal imc;
-            decimal altura = alt;
-            decimal peso = pes;
+            float imc;
             string mensagem;
 
             imc = peso /(altura * altura);
@@ -80,23 +73,23 @@ namespace ProdutorWS
             {
                 mensagem = "Muito abaixo do peso";
             } 
-            else if (17 <= imc || imc <= 18.49 )
+            else if (17 <= imc && imc <= 18.49 )
             {
                 mensagem = "Imc: " + imc + "Abaixo do peso";
             }
-            else if (18.50 <= imc || imc <= 24.99)
+            else if (18.50 <= imc && imc <= 24.99)
             {
                 mensagem = "Imc: " + imc +  "Peso normal";
             } 
-            else if (25 <= imc || imc <= 29.99)
+            else if (25 <= imc && imc <= 29.99)
             {
                 mensagem = "Imc: " + imc + "Acima do peso";
             } 
-            else if (30 <= imc || imc <= 34.99)
+            else if (30 <= imc && imc <= 34.99)
             {
                 mensagem = "Imc: " + imc +  "Obesidade I";
             } 
-            else if (35 <= imc || imc <= 39.99)
+            else if (35 <= imc && imc <= 39.99)
             {
                 mensagem = "Imc: " + imc +  "Obesidade II (severa)";
             } 
@@ -114,11 +107,28 @@ namespace ProdutorWS
 
 
         [WebMethod]
-        public string Conversao(decimal valorMetros, string tipoMedida)
+        public float Conversao(float valorMetros, string tipoMedida)
         {
-            decimal resultdo;
+            float resultado = 0;
 
-            return resultdo;
+            if (tipoMedida == "quilometros")
+            {
+                resultado = (float)(valorMetros / 1000);
+            }
+            else if (tipoMedida == "centimetros")
+            {
+                resultado = (float)(valorMetros / 0.01);
+            }
+            else if (tipoMedida == "milimetros")
+            {
+                resultado = (float)(valorMetros / 0.001);
+            }
+            else if (tipoMedida == "decimetros")
+            {
+                resultado = (float)(valorMetros / 0.1);
+            }
+
+            return resultado;
         }
 
     }
