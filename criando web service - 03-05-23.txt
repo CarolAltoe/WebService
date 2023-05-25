@@ -1,0 +1,112 @@
+
+criando web service - tii - 03-05-2023
+
+. criar projeto web form -> produtor
+(framework, c#, asp, web, vazio)
+
+. boato direito
+. adicionar -> novo item
+. serviço web - web service (WSTeste.aspx) (ou asmx?)
+
+. WSTeste.aspx.cs
+
+-> coloco [webMethod] e escrevo a função abaixo, 
+para cada função
+-> coloco [webMethod] como referencia -> para
+indicar que aquela função não é interna e vai ser 
+acessada por um consumidor externo
+
+-> na função, coloco as coisas que preciso
+ para o web service
+-> passo parametros e os comandos que preciso
+(caso houver)
+
+
+exemplo:
+[webMethod]
+public int nome_funcao (parametros) {
+	//codigo
+	return int;
+}
+
+-> execução
+
+. executo o projeto e abro o 
+WSTeste.aspx no navegador
+. escolho os webmethods disponíveis 
+e consigo usar
+. retorna string em um xml
+
+
+* independente da aplicação que uso
+precisa ter dot.net framework
+(se não tiver, não consigo comunicar)
+	(as aplicações podem ser web,
+ console, windows)
+
+-> se ambas forem frameworks
+(da certo, é facil e bonito)
+-> se uma for e outra não
+(da errado pois falta biblioteca)
+-> se ambas não tem 
+(da certo, mas é trabalhoso)
+
+
+------------------------------------
+
+. criar consumidor
+. framework, windows forms, asp, vazio)
+
+. botao direito
+. adicionar -> windows form (tela.cs)
+
+. monto a tela,
+(ex: implemento botao, habilito click)
+(insiro os campos na tela)
+
+
+. botao direito
+. adicionar
+. referencia de serviço
+(precisa ser um projeto com framework para dar certo)
+. avançado 
+. adicionar referencia web
+. passo o link
+. dou o nome para referencia 
+. ok
+
+-> sempre que o web service estiver
+rodando, consigo acessar os métodos
+no lado consumidor
+
+***
+. sempre deixar o web service rodando
+. se ele não estiver rodando, não 
+consigo consumir o serviço
+. para usar web service só preciso 
+do link do web service
+
+* trocando porta se os dois for web form 
+(produtor e consumidor web form)
+
+. botao dirito
+. propriedades
+. configurações do projeto
+. web (menu lateral)
+. configura o diretório
+. criar diretório virtual
+
+
+----------------------------
+http_buid_query(variavel) 
+-> para montar o link de acordo com
+ os parÂmentros que passo
+
+
+. as vezes só com o link não
+consigo, então tenho que passar 
+parametro
+
+passo parametro e armazeno em
+uma variavel e depois passo a 
+variavel na funçaõ
