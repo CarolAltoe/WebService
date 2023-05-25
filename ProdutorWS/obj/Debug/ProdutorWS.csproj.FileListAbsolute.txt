@@ -1,0 +1,2 @@
+C:\Users\20211stads020\source\repos\ProdutorWS\ProdutorWS\obj\Debug\ProdutorWS.csprojAssemblyReference.cache
+C:\Users\20211stads020\source\repos\ProdutorWS\ProdutorWS\obj\Debug\ProdutorWS.csproj.CoreCompileInputs.cache
