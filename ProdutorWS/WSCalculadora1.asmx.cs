@@ -18,9 +18,9 @@ namespace ProdutorWS
     {
 
         [WebMethod]
-        public string Calculadora(float v1, float v2, char op)
+        public decimal Calculadora(decimal v1, decimal v2, char op)
         {
-            float resultado;
+            decimal resultado;
 
             if (op.Equals('+'))
             {
@@ -37,16 +37,16 @@ namespace ProdutorWS
             {
                 if(v2 == 0)
                 {
-                    return "Não é possível dividir por 0";
+                    return 0;
                 }
                 resultado = v1 / v2;
             }
             else
             {
-                return "Valor inválido!";
+                return 0;
             }
 
-            return resultado.ToString();
+            return resultado;
         }
 
         [WebMethod]
@@ -62,40 +62,40 @@ namespace ProdutorWS
         }
 
         [WebMethod]
-        public string Imc(float altura, float peso)
+        public string Imc(decimal altura, decimal peso)
         {
-            float imc;
+            decimal imc;
             string mensagem;
 
             imc = peso /(altura * altura);
 
             if (imc < 17)
             {
-                mensagem = "Muito abaixo do peso";
+                mensagem = "Seu Imc é : " + imc + ". Você está Muito abaixo do peso";
             } 
-            else if (17 <= imc && imc <= 18.49 )
+            else if (17 <= imc && imc <= 18.49m )
             {
-                mensagem = "Imc: " + imc + "Abaixo do peso";
+                mensagem = "Seu Imc é : " + imc + ". Você está Abaixo do peso";
             }
-            else if (18.50 <= imc && imc <= 24.99)
+            else if (18.50m <= imc && imc <= 24.99m)
             {
-                mensagem = "Imc: " + imc +  "Peso normal";
+                mensagem = "Seu Imc é : " + imc + ". Você está Peso normal";
             } 
-            else if (25 <= imc && imc <= 29.99)
+            else if (25 <= imc && imc <= 29.99m)
             {
-                mensagem = "Imc: " + imc + "Acima do peso";
+                mensagem = "Seu Imc é : " + imc + ". Você está Acima do peso";
             } 
-            else if (30 <= imc && imc <= 34.99)
+            else if (30 <= imc && imc <= 34.99m)
             {
-                mensagem = "Imc: " + imc +  "Obesidade I";
+                mensagem = "Seu Imc é : " + imc + ". Você está com Obesidade I";
             } 
-            else if (35 <= imc && imc <= 39.99)
+            else if (35 <= imc && imc <= 39.99m)
             {
-                mensagem = "Imc: " + imc +  "Obesidade II (severa)";
+                mensagem = "Seu Imc é : " + imc + ". Você está com Obesidade II (severa)";
             } 
             else if (40 <= imc)
             {
-                mensagem = "Imc: " + imc +  "Obesidade III (mórbida)";
+                mensagem = "Seu Imc é : " + imc + ". Você está com Obesidade III (mórbida)";
             } 
             else
             {
@@ -107,25 +107,25 @@ namespace ProdutorWS
 
 
         [WebMethod]
-        public float Conversao(float valorMetros, string tipoMedida)
+        public decimal Conversao(decimal valorMetros, string tipoMedida)
         {
-            float resultado = 0;
+            decimal resultado = 0;
 
             if (tipoMedida == "quilometros")
             {
-                resultado = (float)(valorMetros / 1000);
+                resultado = (decimal)(valorMetros / 1000m);
             }
             else if (tipoMedida == "centimetros")
             {
-                resultado = (float)(valorMetros / 0.01);
+                resultado = (decimal)(valorMetros / 0.01m);
             }
             else if (tipoMedida == "milimetros")
             {
-                resultado = (float)(valorMetros / 0.001);
+                resultado = (decimal)(valorMetros / 0.001m);
             }
             else if (tipoMedida == "decimetros")
             {
-                resultado = (float)(valorMetros / 0.1);
+                resultado = (decimal)(valorMetros / 0.1m);
             }
 
             return resultado;
